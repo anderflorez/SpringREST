@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Represents a customer in the CRM system.
@@ -18,8 +19,11 @@ import javax.persistence.OneToMany;
  * @author Richard Chesterwood
  */
 @Entity
+@XmlRootElement
 public class Customer implements Serializable
 {
+	private static final long serialVersionUID = 1376291169868480173L;
+
 	/**
 	 * A simple unique value for the customer - note this is determined
 	 * by the business and is not necessarily the database primary key.

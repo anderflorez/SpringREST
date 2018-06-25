@@ -1,15 +1,15 @@
 package com.virtualpairprogrammers.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.virtualpairprogrammers.domain.Customer;
 import com.virtualpairprogrammers.services.customers.CustomerManagementService;
 import com.virtualpairprogrammers.services.customers.CustomerNotFoundException;
 
-@Controller
+@RestController
 public class CustomerRestController
 {
 	@Autowired
@@ -17,6 +17,7 @@ public class CustomerRestController
 	
 	// we want to support get requests to /customer/[customerId]
 	@RequestMapping("/customer/{id}")
+	// @ResponseBody		// Not required if using @RestController on the class
 	public Customer findCustomerById(@PathVariable String id)
 	{
 		Customer foundCustomer;
