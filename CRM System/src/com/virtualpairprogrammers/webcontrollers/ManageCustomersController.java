@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.controllers;
+package com.virtualpairprogrammers.webcontrollers;
 
 import java.util.List;
 
