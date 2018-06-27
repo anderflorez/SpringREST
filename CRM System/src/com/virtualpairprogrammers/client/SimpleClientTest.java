@@ -37,6 +37,14 @@ public class SimpleClientTest {
 				System.out.println("Sorry, that customer doesn't exisit");
 			}
 			
+			try {
+				Customer foundCustomer = customerService.getFullCustomerDetail("100029");
+				System.out.println(foundCustomer);
+			} catch (CustomerNotFoundException e) {
+				System.out.println("The custome with the id 100029 does not exist");
+			}
+			
+			
 //			// begin
 //			customerService.newCustomer(new Customer("CS03939", "Acme", "Good Customer"));
 //			// commit

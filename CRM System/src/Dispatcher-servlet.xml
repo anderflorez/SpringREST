@@ -22,6 +22,19 @@
 	<context:component-scan base-package="com.virtualpairprogrammers.restcontrollers"/>
 	
 	<!-- This will automatically switch on the default http message converters -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+	
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="false" />
+		<property name="favorParameter" value="true" />
+		<property name="parameterName" value="mediaType"/>
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>
+		<property name="ignoreAcceptHeader" value="false" />
+	</bean>
 
 </beans>
